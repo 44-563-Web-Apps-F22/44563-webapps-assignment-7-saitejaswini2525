@@ -79,6 +79,8 @@
       }
       function help() {
             let result = ""
+            chestCount++;
+        document.getElementById('chests').innerHTML="Number of chests checked is "+chestCount;
             if ((Math.floor(lastCheck / 5) == 3.0) && (lastCheck % 5 == 3)) {
                 var isWon = true
             }
@@ -102,6 +104,7 @@
             document.getElementById('help').innerText = result
             score += 2
             document.getElementById('score').innerText = "Score is: " + score
+           
           }
         
     function generateRandom(min, max) {

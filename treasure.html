@@ -18,6 +18,10 @@
     <p id="score" style="padding-left: 5rem;color:darkred;">Score is unknown</p>
     <p id="help" style="padding-left: 5rem;color:brown;">Help report</p>
 
+    <div class="text-center">
+      <button type="button" class="btn btn-primary" onclick="reset()">New Game</button>
+    </div>
+
     <div class="row" style="padding-left: 5rem;">
         <div class="col-md-1"><img src="treasureclosedimage.jpg" alt="treasure hunt" style="width:100px;height:100px" id="0" onclick="check(0)"></div>
         <div class="col-md-1"><img src="treasureclosedimage.jpg" alt="treasure hunt" style="width:100px;height:100px" id="1" onclick="check(1)" ></div>
@@ -99,6 +103,26 @@
             score += 2
             document.getElementById('score').innerText = "Score is: " + score
           }
+        
+    function generateRandom(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function reset() {
+      chestCount = 0;
+      score = 0;
+      lastCheck = 12;
+      treasureLocation = generateRandom(0, 24);
+      document.getElementById('chests').innerHTML="Number of chests checked is "+chestCount;
+      document.getElementById('score').innerHTML="Score is  "+score;
+      document.getElementById('help').innerHTML="Help report";
+      for (let i = 0; i <= ids.length; i++){
+        if(i!=12){
+          document.getElementById(i).src="treasureclosedimage.jpg";
+        }
+      }
+    }
+    
     </script>
     
     </body>
